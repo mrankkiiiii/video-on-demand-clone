@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
-import { Carousel, AllVideos } from "../../components";
+import { Carousel, AllVideos, Navbar } from "../../components";
 import "./HomePage.css";
 
 const URL = "https://videoapi-dot-virtualeventdemo.el.r.appspot.com/";
@@ -12,10 +12,6 @@ const HomePage = () => {
   useEffect(() => {
     // make a request to get all videos
     getVideos();
-
-    return () => {
-      // cleanup
-    };
   }, []);
 
   const getVideos = () => {
@@ -39,6 +35,7 @@ const HomePage = () => {
         </div>
       ) : (
         <div>
+          <Navbar />
           <Carousel videos={videos} />
           <AllVideos videos={videos} />
         </div>

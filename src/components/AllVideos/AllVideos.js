@@ -16,9 +16,6 @@ const AllVideos = ({ videos }) => {
       data[1]["tags"].map((val) => tagArray.push(val))
     );
     setTags(Array.from(new Set(tagArray)));
-    return () => {
-      // cleanup
-    };
   }, []);
   const handleTagClick = (tag) => {
     if (selectedTag === tag) {
@@ -34,13 +31,12 @@ const AllVideos = ({ videos }) => {
         handleTagClick={handleTagClick}
       />
       <div className='all-videos-container'>
-        {selectedTag ? <h4>Videos on {selectedTag}</h4> : <h4>All Videos</h4>}
+        {selectedTag && <h4>Videos on {selectedTag}</h4>}
         <div className='all-videos'>
           {videos.length > 0 &&
             videos
               .filter((video) => {
-                if (selectedTag === "") return video;
-                else if (selectedTag === "favourites") {
+                if (selectedTag === "favourites") {
                   let favs = JSON.parse(window.localStorage.getItem("fav"));
                   if (favs.title.includes(video.title)) return video;
                 } else if (video.tags.includes(selectedTag)) return video;
@@ -53,6 +49,17 @@ const AllVideos = ({ videos }) => {
               ))}
         </div>
       </div>
+      <div className='all-videos-container'>
+        <h4>All Videos</h4>
+        <div className='all-videos'>
+          {videos.length > 0 &&
+            videos.map((video) => (
+              <div className='all-videos-item' key={video.title}>
+                <VideoItem video={video} />
+              </div>
+            ))}
+        </div>
+      </div>
     </>
   );
 };
@@ -62,7 +69,7 @@ export default AllVideos;
 const Tags = ({ tags, handleTagClick, selectedTag }) => {
   return (
     <div className='AlltagContainer'>
-      Tags :&nbsp;
+      Tags :&nbsp;&nbsp;
       <span
         className={`Alltag ${selectedTag === "favourites" && "active"}`}
         onClick={() => handleTagClick("favourites")}

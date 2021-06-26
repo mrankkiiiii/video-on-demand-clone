@@ -1,8 +1,8 @@
 .all-videos-container {
-  margin-top: 7vw;
+  margin-top: 6vw;
 }
 .all-videos-container > h4 {
-  margin-left: 10vw;
+  margin-left: 9vw;
   text-transform: capitalize;
   color: #0c5188;
   font-weight: 800;
@@ -34,7 +34,7 @@
   flex-wrap: wrap;
 }
 .AlltagContainer > .Alltag {
-  border: 1px solid gray;
+  border: 1px solid #0c5188;
   padding: 5px 15px;
   margin-right: 10px;
   margin-bottom: 10px;

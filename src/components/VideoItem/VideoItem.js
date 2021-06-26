@@ -7,7 +7,6 @@ const VideoItem = ({ video }) => {
   const handleVideoClick = () => {
     setIsPlayerOpen(true);
   };
-  // console.log(video);
   const handleFavClick = (video) => {
     let favs = JSON.parse(window.localStorage.getItem("fav"));
     if (favs?.title.includes(video.title)) {
@@ -17,7 +16,13 @@ const VideoItem = ({ video }) => {
     }
 
     window.localStorage.setItem("fav", JSON.stringify(favs));
-    // console.log("clicked");
+  };
+
+  const ellipsize = (str, limit) => {
+    if (str.length > limit) {
+      return `${str.slice(0, limit)}...`;
+    }
+    return str;
   };
   return (
     <>
@@ -37,6 +42,14 @@ const VideoItem = ({ video }) => {
         <span onClick={() => handleVideoClick()} className='video-title'>
           {video.title}
         </span>
+        <div className='hoverDetails' onClick={() => handleVideoClick()}>
+          <span className='video-title'>{video.title}</span>
+          <br />
+          <br />
+          <span className='video-description'>
+            {ellipsize(video.description, 150)}
+          </span>
+        </div>
         <span onClick={() => handleFavClick(video)} className='fav-btn'>
           {JSON.parse(window.localStorage.getItem("fav"))?.title.includes(
             video.title
