@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import { Modal, ModalBody } from "react-bootstrap";
 import "./VideoPlayer.css";
 
 const VideoPlayer = ({ show, onHide, video }) => {
-  
+  const [showMore, setShowMore] = useState(false);
+
+  const handleShowMoreBtn = () => {
+    setShowMore(!showMore);
+  };
   return (
     <div>
       <Modal centered show={show} onHide={onHide}>
@@ -26,7 +30,18 @@ const VideoPlayer = ({ show, onHide, video }) => {
             ))}
             <br />
             <br />
-            <span className='description'>{video.description}</span>
+            {!showMore ? (
+              <span className='description'>{video.description}</span>
+            ) : (
+              <span className='description'>Click to read description</span>
+            )}
+            <span
+              onClick={() => handleShowMoreBtn()}
+              className='description'
+              style={{ color: "#0c5188", cursor: "pointer" }}
+            >
+              <i> {showMore ? "show more" : "show less"}</i>
+            </span>
           </div>
         </ModalBody>
         <span onClick={onHide} className='clsbtn'>

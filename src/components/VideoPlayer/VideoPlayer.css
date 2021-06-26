@@ -1,5 +1,6 @@
 .details {
   padding: 0 15px 15px;
+  user-select: none;
 }
 .tag {
   border: 1px solid #0c5188;
