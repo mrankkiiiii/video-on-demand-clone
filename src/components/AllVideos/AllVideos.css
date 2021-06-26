@@ -1,0 +1,24 @@
+.all-videos-container {
+  margin-top: 10vw;
+}
+.all-videos-container > h4 {
+  margin-left: 10vw;
+}
+.all-videos-container > .all-videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.all-videos-container > .all-videos > .all-videos-item {
+  max-height: 240px;
+  max-width: 250px;
+  margin: 10px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.all-videos-container > .all-videos > .all-videos-item:hover {
+  z-index: 1;
+  transform: scale(1.2);
+}

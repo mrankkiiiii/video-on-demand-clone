@@ -1,25 +1,48 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import axios from "axios";
+import { Spinner } from "react-bootstrap";
+import { Carousel, AllVideos } from "../../components";
+import "./HomePage.css";
+
+const URL = "https://videoapi-dot-virtualeventdemo.el.r.appspot.com/";
 
 const HomePage = () => {
+  const [videos, setVideos] = useState([]);
+
   useEffect(() => {
-    axios({
-      method: "post",
-      url: "https://videoapi-dot-virtualeventdemo.el.r.appspot.com/",
-      responseType: "stream",
-    }).then(function (response) {
-        console.log("response",response.data.result)
-    }).catch((err)=> {
-        console.log("err",err)
-    });
+    // make a request to get all videos
+    getVideos();
+
     return () => {
       // cleanup
     };
   }, []);
+
+  const getVideos = () => {
+    axios({
+      method: "POST",
+      url: URL,
+    })
+      .then(function (response) {
+        setVideos(response.data.result);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
+
   return (
-    <div>
-      <Button>hello</Button>
+    <div className='home'>
+      {videos.length <= 0 ? (
+        <div className='loader'>
+          <Spinner animation='border' style={{ color: "#0c5188" }} />
+        </div>
+      ) : (
+        <div>
+          <Carousel videos={videos} />
+          <AllVideos videos={videos} />
+        </div>
+      )}
     </div>
   );
 };
