@@ -4,7 +4,7 @@ import { Modal, ModalBody } from "react-bootstrap";
 
 const style = {
   details: {
-    padding: "0 10px",
+    padding: "0 15px 15px",
   },
   tag: {
     border: "1px solid gray",
@@ -13,15 +13,18 @@ const style = {
     borderRadius: "10px",
     color: "#0c5188",
   },
+  title: {
+    color: "#0c5188",
+    fontWeight: "700",
+  },
 };
 const VideoPlayer = ({ show, onHide, video }) => {
   return (
     <div>
       <Modal centered show={show} onHide={onHide}>
-        {console.log("v", video)}
         <ModalBody style={{ padding: "0" }}>
           <ReactPlayer
-            className='react-player'
+            // className='react-player'
             url={video.videolink}
             playing={true}
             controls={true}
@@ -30,7 +33,7 @@ const VideoPlayer = ({ show, onHide, video }) => {
             // height='100%'
           />
           <div style={style.details}>
-            <h3>{video.title}</h3>
+            <h3 style={style.title}>{video.title}</h3>
             {video.tags.map((tag) => (
               <span key={tag} style={style.tag}>
                 {tag}

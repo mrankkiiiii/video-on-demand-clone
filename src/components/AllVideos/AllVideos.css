@@ -1,8 +1,11 @@
 .all-videos-container {
-  margin-top: 10vw;
+  margin-top: 7vw;
 }
 .all-videos-container > h4 {
   margin-left: 10vw;
+  text-transform: capitalize;
+  color: #0c5188;
+  font-weight: 800;
 }
 .all-videos-container > .all-videos {
   display: flex;
@@ -21,4 +24,31 @@
 .all-videos-container > .all-videos > .all-videos-item:hover {
   z-index: 1;
   transform: scale(1.2);
+}
+
+.AlltagContainer {
+  margin-top: 5vw;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.AlltagContainer > .Alltag {
+  border: 1px solid gray;
+  padding: 5px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  color: #0c5188;
+  transition: 0.3s;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.AlltagContainer > .Alltag:hover {
+  color: #fff;
+  background-color: #0c5188;
+}
+.AlltagContainer > .active {
+  color: #fff;
+  background-color: #0c5188;
 }

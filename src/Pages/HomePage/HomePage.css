@@ -6,10 +6,10 @@
 .home {
   min-height: 100vh;
 }
-.home>.loader{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0,0,0,0.3);
+.home > .loader {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
 }

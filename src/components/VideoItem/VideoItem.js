@@ -7,8 +7,17 @@ const VideoItem = ({ video }) => {
   const handleVideoClick = () => {
     setIsPlayerOpen(true);
   };
-  const handleFavClick = () => {
-    console.log("clicked");
+  // console.log(video);
+  const handleFavClick = (video) => {
+    let favs = JSON.parse(window.localStorage.getItem("fav"));
+    if (favs?.title.includes(video.title)) {
+      favs.title.pop(video.title);
+    } else {
+      favs.title.push(video.title);
+    }
+
+    window.localStorage.setItem("fav", JSON.stringify(favs));
+    // console.log("clicked");
   };
   return (
     <>
@@ -28,8 +37,14 @@ const VideoItem = ({ video }) => {
         <span onClick={() => handleVideoClick()} className='video-title'>
           {video.title}
         </span>
-        <span onClick={() => handleFavClick()} className='fav-btn'>
-          <FavoriteIcon />
+        <span onClick={() => handleFavClick(video)} className='fav-btn'>
+          {JSON.parse(window.localStorage.getItem("fav"))?.title.includes(
+            video.title
+          ) ? (
+            <FavoriteIcon style={{ color: "#fff" }} />
+          ) : (
+            <FavoriteIcon style={{ color: "rgba(0, 0, 0, 0.4)" }} />
+          )}
         </span>
       </div>
     </>

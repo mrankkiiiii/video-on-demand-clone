@@ -29,6 +29,7 @@ html::-webkit-scrollbar {
 }
 .carousel-title {
   font-weight: 900;
+  width: 50%;
 }
 
 @media only screen and (max-width: 522px) {

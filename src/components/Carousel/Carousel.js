@@ -55,7 +55,6 @@ const Carousel = ({ videos }) => {
                   </Button>
                 </div>
                 <div className='carousel-shadow-bottom'></div>
-                {/* <div className='carousel-shadow-top'></div> */}
               </div>
             );
           })}
