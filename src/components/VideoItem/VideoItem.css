@@ -30,6 +30,7 @@
   display: none;
   font-weight: normal;
   height: 70%;
+  overflow: hidden;
 }
 .video-item > .hoverDetails > .video-title {
   font-weight: 700;

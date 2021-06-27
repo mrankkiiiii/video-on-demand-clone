@@ -26,14 +26,6 @@ html::-webkit-scrollbar {
   text-shadow: 0px 0px 10px #000;
   margin-bottom: 2vw;
 }
-
-@media only screen and (max-width: 522px) {
-  .carousel-control-next,
-  .carousel-control-prev {
-    top: 35px !important;
-  }
-}
-
 .carousel-img {
   width: 100vw;
 }
@@ -50,7 +42,49 @@ html::-webkit-scrollbar {
     rgba(255, 255, 255, 1)
   );
 }
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 700px) {
+  .carousel-title {
+    width: 50vw;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 522px) {
+  .carousel-control-next,
+  .carousel-control-prev {
+    top: 35px !important;
+  }
+  .carousel-title {
+    width: 60vw;
+  }
+  .media-container {
+    left: 12%;
+  }
+}
+@media only screen and (max-width: 411px) {
+  .media-container button {
+    font-size: 0.6rem;
+    padding: 0.335rem 0.35rem;
+  }
+}
+@media only screen and (max-width: 365px) {
+  .carousel-title {
+    font-size: 0.7rem;
+  }
+  .media-container {
+    left: 15%;
+  }
+}
+@media only screen and (max-width: 365px) {
+  .media-container {
+    top: 12%;
+  }
+  .carousel-title {
+    width: 65vw;
+  }
+  .media-container button {
+    line-height: 1.2;
+  }
 }
 
 /* overriding css */

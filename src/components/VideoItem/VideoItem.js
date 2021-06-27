@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { VideoPlayer } from "../index";
 import "./VideoItem.css";
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, setFavs, favs }) => {
   const [isPlayerOpen, setIsPlayerOpen] = useState(false);
   const handleVideoClick = () => {
     setIsPlayerOpen(true);
@@ -14,7 +14,7 @@ const VideoItem = ({ video }) => {
     } else {
       favs.title.push(video.title);
     }
-
+    setFavs(favs);
     window.localStorage.setItem("fav", JSON.stringify(favs));
   };
 

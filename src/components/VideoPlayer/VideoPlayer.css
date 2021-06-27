@@ -26,3 +26,14 @@
   right: 5px;
   cursor: pointer;
 }
+@media only screen and (max-width: 414px) {
+  .title {
+    margin-top: -45px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .title {
+    margin-top: -57px;
+    font-size: 1rem;
+  }
+}

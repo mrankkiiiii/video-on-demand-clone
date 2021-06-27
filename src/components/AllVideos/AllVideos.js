@@ -5,12 +5,14 @@ import "./AllVideos.css";
 const AllVideos = ({ videos }) => {
   const [tags, setTags] = useState([]);
   const [selectedTag, setSelectedTag] = useState("");
+  const [favs, setFavs] = useState({ title: [] });
 
   useEffect(() => {
     let favs = JSON.parse(window.localStorage.getItem("fav"));
     if (!favs || favs.title.length <= 0) {
       window.localStorage.setItem("fav", JSON.stringify({ title: [] }));
     }
+    setFavs(favs);
     let tagArray = [];
     Object.entries(videos).map((data) =>
       data[1]["tags"].map((val) => tagArray.push(val))
@@ -33,18 +35,20 @@ const AllVideos = ({ videos }) => {
       <div className='all-videos-container'>
         {selectedTag && <h4>Videos on {selectedTag}</h4>}
         <div className='all-videos'>
+          {favs.title.length <= 0 && selectedTag === "favourites" && (
+            <h4>No videos to show</h4>
+          )}
           {videos.length > 0 &&
             videos
               .filter((video) => {
                 if (selectedTag === "favourites") {
-                  let favs = JSON.parse(window.localStorage.getItem("fav"));
                   if (favs.title.includes(video.title)) return video;
                 } else if (video.tags.includes(selectedTag)) return video;
                 return null;
               })
               .map((video) => (
                 <div className='all-videos-item' key={video.title}>
-                  <VideoItem video={video} />
+                  <VideoItem video={video} setFavs={setFavs} favs={favs} />
                 </div>
               ))}
         </div>
@@ -55,7 +59,7 @@ const AllVideos = ({ videos }) => {
           {videos.length > 0 &&
             videos.map((video) => (
               <div className='all-videos-item' key={video.title}>
-                <VideoItem video={video} />
+                <VideoItem video={video} setFavs={setFavs} favs={favs} />
               </div>
             ))}
         </div>

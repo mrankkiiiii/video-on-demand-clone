@@ -18,7 +18,6 @@ const VideoPlayer = ({ show, onHide, video }) => {
             playing={true}
             controls={true}
             pip={true}
-            stopOnUnmount={false}
             width='100%'
           />
           <div className='details'>
