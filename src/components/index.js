@@ -1,3 +1,5 @@
+// common file to export import all the components //
+
 // importing all components
 import Carousel from "./Carousel/Carousel";
 import VideoPlayer from "./VideoPlayer/VideoPlayer";

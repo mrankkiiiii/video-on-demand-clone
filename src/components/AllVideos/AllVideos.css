@@ -1,15 +1,17 @@
 .all-videos-container {
-  margin-top: 3vw;
+  margin-top: 9vw;
 }
 .all-videos-container > h4 {
   margin-left: 9vw;
   text-transform: capitalize;
   color: #0c5188;
-  font-weight: 800;
+  font-weight: 700;
 }
 .all-videos-container > .all-videos {
   display: flex;
   flex-wrap: wrap;
+  max-width: 90vw;
+  margin: 0 auto;
   justify-content: center;
 }
 .all-videos-container > .all-videos > .all-videos-item {
@@ -27,7 +29,7 @@
 }
 
 .AlltagContainer {
-  margin-top: 5vw;
+  margin-bottom: 3vw;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -81,7 +83,7 @@
   }
   .all-videos-container > .all-videos > .all-videos-item {
     max-height: 220px;
-    max-width: 230px;
+    max-width: 220px;
   }
 }
 @media only screen and (max-width: 414px) {

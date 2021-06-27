@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { VideoItem } from "../";
+import { VideoItem } from "..";
+
 import "./AllVideos.css";
 
 const AllVideos = ({ videos }) => {
@@ -12,30 +13,42 @@ const AllVideos = ({ videos }) => {
     if (!favs || favs.title.length <= 0) {
       window.localStorage.setItem("fav", JSON.stringify({ title: [] }));
     }
+    // set favs videos initially from the browser
     setFavs(favs);
+
     let tagArray = [];
+
+    // getting all tags from the videos array
     Object.entries(videos).map((data) =>
       data[1]["tags"].map((val) => tagArray.push(val))
     );
+
+    // storing unique tags only
     setTags(Array.from(new Set(tagArray)));
+
+    // eslint-disable-next-line
   }, []);
+
+  // handle tag btn
   const handleTagClick = (tag) => {
+    // if tag is already selected then set tag empty string
     if (selectedTag === tag) {
       return setSelectedTag("");
     }
+
     setSelectedTag(tag);
   };
   return (
     <>
-      <Tags
-        tags={tags}
-        selectedTag={selectedTag}
-        handleTagClick={handleTagClick}
-      />
       <div className='all-videos-container'>
+        <Tags
+          tags={tags}
+          selectedTag={selectedTag}
+          handleTagClick={handleTagClick}
+        />
         {selectedTag && <h4>Videos on {selectedTag}</h4>}
         <div className='all-videos'>
-          {favs.title.length <= 0 && selectedTag === "favourites" && (
+          {favs?.title.length <= 0 && selectedTag === "favourites" && (
             <h4>No videos to show</h4>
           )}
           {videos.length > 0 &&
@@ -86,6 +99,7 @@ const Tags = ({ tags, handleTagClick, selectedTag }) => {
             onClick={() => handleTagClick(tag)}
             key={tag}
             className={`Alltag ${selectedTag === tag && "active"}`}
+            style={{ textTransform: tag.length === 2 && "uppercase" }}
           >
             {tag}
           </span>

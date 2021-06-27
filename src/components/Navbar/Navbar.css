@@ -11,3 +11,6 @@
     rgba(255, 255, 255, 1)
   ); */
 }
+.navbar > .left > #logo {
+  font-weight: 700;
+}

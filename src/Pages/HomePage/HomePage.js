@@ -34,11 +34,11 @@ const HomePage = () => {
           <Spinner animation='border' style={{ color: "#0c5188" }} />
         </div>
       ) : (
-        <div>
+        <>
           <Navbar />
           <Carousel videos={videos} />
           <AllVideos videos={videos} />
-        </div>
+        </>
       )}
     </div>
   );
