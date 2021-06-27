@@ -4,10 +4,11 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className='left'>
-        <span id='logo'>
-          <span style={{ color: "#25a8d1" }}>med</span>
-          <span style={{ color: "#0c518a",fontSize: "1.1rem" }}>X</span>
-          {/* <svg
+        <a href="#">
+          <span id='logo'>
+            <span style={{ color: "#25a8d1" }}>med</span>
+            <span style={{ color: "#0c518a", fontSize: "1.1rem" }}>X</span>
+            {/* <svg
             height='30pt'
             viewBox='-31 0 512 512'
             width='30pt'
@@ -35,7 +36,8 @@ const Navbar = () => {
               <path d='m234.773438 492c-5.507813 0-10 4.492188-10 10s4.492187 10 10 10c5.511718 0 10-4.492188 10-10s-4.488282-10-10-10zm0 0' />
             </g>
           </svg> */}
-        </span>
+          </span>
+        </a>
       </div>
       <div className='right'>
         <span id='notification' style={{ marginRight: "1rem" }}>
